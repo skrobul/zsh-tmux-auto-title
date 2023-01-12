@@ -37,7 +37,8 @@ _zsh_tmux_auto_title_preexec() {
 
 	local title=$ZSH_TMUX_AUTO_TITLE_PREFIX$line
 	[[ "$ZSH_TMUX_AUTO_TITLE_SHORT" = "true" ]] && 
-	! [[ "$cmd" =~ "$ZSH_TMUX_AUTO_TITLE_SHORT_EXCLUDE" ]] && title=$cmd
+	! [[ "$cmd" =~ "$ZSH_TMUX_AUTO_TITLE_SHORT_EXCLUDE" ]] || [[ "$ZSH_TMUX_AUTO_TITLE_SHORT_EXCLUDE" == "" ]] &&
+	title=$cmd
 
   ZSH_TMUX_AUTO_TITLE_LAST=$title
 	_zsh_tmux_auto_title_set_title $title
