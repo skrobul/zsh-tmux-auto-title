@@ -15,9 +15,10 @@
 typeset -g ZSH_TMUX_AUTO_TITLE_LAST
 
 _zsh_tmux_auto_title_set_title() {
+	local title=${1/$HOME/\~}
 	case $ZSH_TMUX_AUTO_TITLE_TARGET in
-		window) printf "\ek$1\e\\" ;;
-		pane)   printf "\e]2;$1\e\\" ;;
+		window) printf "\ek$title\e\\" ;;
+		pane)   printf "\e]2;$title\e\\" ;;
 	esac
 }
 
