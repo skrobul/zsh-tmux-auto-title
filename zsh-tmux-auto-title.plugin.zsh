@@ -56,7 +56,7 @@ _zsh_tmux_auto_title_precmd() {
 	if [[ "$ZSH_TMUX_AUTO_TITLE_IDLE_DELAY" = "0" ]]; then
 		_zsh_tmux_auto_title_set_title $title
 	else	
-		sched +$ZSH_TMUX_AUTO_TITLE_IDLE_DELAY _zsh_tmux_auto_title_set_title "$title"
+		sched +$ZSH_TMUX_AUTO_TITLE_IDLE_DELAY _zsh_tmux_auto_title_set_title "'$title'"
 	fi
 }
 
